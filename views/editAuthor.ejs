@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<h1>Edit Author</h1>
+
+<a href="/authors">← Back to Authors</a>
+
+<% if (message) { %>
+    <p><%= message %></p>
+<% } %>
+
+<form method="POST" action="/author/edit">
+    <input type="hidden" name="authorId" value="<%= author.authorId %>">
+    
+    <label>First Name:</label>
+    <input type="text" name="fName" value="<%= author.firstName %>" required>
+    
+    <label>Last Name:</label>
+    <input type="text" name="lName" value="<%= author.lastName %>" required>
+    <br>
+    
+    <label>Date of Birth:</label>
+    <input type="date" name="birthDate" value="<%= author.dob || '' %>">
+    
+    <label>Date of Death:</label>
+    <input type="date" name="deathDate" value="<%= author.dod || '' %>">
+    <br>
+    
+    <label>Country:</label>
+    <input type="text" name="birthPlace" value="<%= author.country || '' %>">
+    
+    <label>Sex:</label>
+        <select name="sex">
+            <option value="M">M</option>
+            <option value="F">F</option>
+            <option value="Other">Other</option>
+        </select>
+        <br>
+    
+    <label>Profession:</label>
+    <input type="text" name="profession" value="<%= author.profession || '' %>">
+    
+    <label>Portrait URL:</label>
+    <input type="text" name="portrait" value="<%= author.portrait || '' %>">
+    <br>
+    
+    <label>Bio:</label>
+    <textarea name="bio" rows="5"><%= author.biography || '' %></textarea>
+    <br>
+    
+    <button type="submit">Update Author</button>
+</form>
+
+<%- include('partials/footer') %>

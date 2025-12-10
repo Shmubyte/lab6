@@ -1,0 +1,46 @@
+
+<%- include('partials/header') %>
+
+<h1>Edit Quote</h1>
+
+<a href="/quotes">← Back to Quotes</a>
+
+<% if (message) { %>
+    <p><%= message %></p>
+<% } %>
+
+<form method="POST" action="/quote/edit">
+    <input type="hidden" name="quoteId" value="<%= quote.quoteId %>">
+    
+    <label>Quote:</label>
+    <textarea name="quote" rows="10" cols="80" required style="resize: none;"><%= quote.quote %></textarea>
+    <br>
+    
+    <label>Author:</label>
+    <select name="authorId" required>
+        <option value="">-- Select Author --</option>
+        <% authors.forEach(function(author) { %>
+            <option value="<%= author.authorId %>" 
+                    <%= author.authorId == quote.authorId ? 'selected' : '' %>>
+                <%= author.firstName %> <%= author.lastName %>
+            </option>
+        <% }); %>
+    </select>
+    <br>
+    
+    <label>Category:</label>
+    <input type="text" 
+           name="category" 
+           list="categoryList"
+           value="<%= quote.category || '' %>">
+    <datalist id="categoryList">
+        <% categories.forEach(function(cat) { %>
+            <option value="<%= cat.category %>">
+        <% }); %>
+    </datalist>
+    <br><br>
+    
+    <button type="submit">Update Quote</button>
+</form>
+
+<%- include('partials/footer') %>

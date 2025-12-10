@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <%- include('partials/nav.ejs') %>
+<h1>Search Results</h1>
+
+<% for (let i of quotes) { %>
+    <%= i.quote %> <br>
+    <a href="#" id="<%=i.authorId%>">
+        -<em><%= i.firstName %> <%= i.lastName %></em> <br><br>
+    </a>
+<% } %>
+
+<a href="/">Back to Search</a>
+<div id="authorInfo"></div>
+<%- include("partials/footer.ejs") %>
+<script src="/js/script.js"></script>
+</body>

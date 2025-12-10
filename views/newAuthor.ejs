@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+<body>
+    <%- include('partials/nav.ejs') %>
+    <h1>Add New Author</h1>
+    
+    <% if (message) { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+    
+    <form method="POST" action="/author/new">
+        <label>First Name:</label>
+        <input type="text" name="fName" required>
+        
+        <label>Last Name:</label>
+        <input type="text" name="lName" required>
+        <br>
+        
+        <label>Date of Birth:</label>
+        <input type="date" name="birthDate">
+        
+        <label>Date of Death:</label>
+        <input type="date" name="deathDate">
+        <br>
+        
+        <label>Birth Place:</label>
+        <input type="text" name="birthPlace">
+        
+        <label>Sex:</label>
+        <select name="sex">
+            <option value="M">M</option>
+            <option value="F">F</option>
+            <option value="Other">Other</option>
+        </select>
+        <br>
+        
+        <label>Profession:</label>
+        <input type="text" name="profession">
+        
+        <label>Portrait URL:</label>
+        <input type="text" name="portrait">
+        <br>
+        
+        <label>Bio:</label>
+        <textarea name="bio" rows="5" cols="50"></textarea>
+        <br>
+        
+        <button type="submit">Add Author</button>
+    </form>
+    <%- include('partials/footer') %>
+</body>

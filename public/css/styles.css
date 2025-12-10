@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: purple;
+    color: white;
+}
+tr:hover {
+    background-color: white;
+}
+.actions a {
+    margin-right: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.edit {
+    background-color: blue;
+    color: white;
+}
+.delete {
+    background-color: red;
+    color: white;
+}
+.add-new {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: purple;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+nav {
+    margin: 20px 0;
+}
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #2196F3;
+}

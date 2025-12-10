@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<body>
+    <%- include('partials/nav.ejs') %>
+    <h1>Add New Quote</h1>
+    
+    <% if (message) { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+    
+    <form method="POST" action="/quote/new">
+        <label for="quote">Quote:</label>
+        <textarea id="quote" name="quote" required></textarea><br>
+        
+        <label for="authorId">Author:</label>
+        <select id="authorId" name="authorId" required>
+            <option value="">-- Select Author --</option>
+            <% authors.forEach(function(author) { %>
+                <option value="<%= author.authorId %>">
+                    <%= author.firstName %> <%= author.lastName %>
+                </option>
+            <% }); %>
+        </select><br>
+        
+        <label for="category">Category:</label>
+        <input type="text" 
+               id="category" 
+               name="category" 
+               list="categoryList"
+               placeholder="Type or select category"><br>
+        <datalist id="categoryList">
+            <% categories.forEach(function(cat) { %>
+                <option value="<%= cat.category %>">
+            <% }); %>
+        </datalist>
+        
+        <button type="submit">Add Quote</button>
+    </form>
+    <%- include('partials/footer') %>
+</body>
+</html>
